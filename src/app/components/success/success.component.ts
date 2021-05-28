@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { PaymentService } from '@app/services/payment.service';
 
@@ -14,7 +13,6 @@ export class SuccessComponent implements OnInit {
 
   ngOnInit(): void {
     this.payS.successPayment().subscribe(() => {
-      console.log("yes4")
     })
   }
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Position, User } from '@app/interfaces';
+import * as link from '@app/apiLink';
 
 
 
@@ -12,11 +13,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUser() : Observable<User>{
-    return this.http.get<User>('/api/user/getByToken')
+    return this.http.get<User>(link +'/api/user/getByToken')
   }
 
   getUserItems() : Observable<Position[]>{
-    return this.http.get<Position[]>('/api/user/userItems')
+    return this.http.get<Position[]>(link + '/api/user/userItems')
   }
 
 }

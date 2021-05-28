@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { messages, Position, Types, User } from '@app/interfaces';
+import { Position, Types, User } from '@app/interfaces';
 import { PaymentService } from '@app/services/payment.service';
 import { PositionService } from '@app/services/position.service';
 import { UserService } from '@app/services/user.service';
-import { Stripe } from 'stripe-angular';
 
 @Component({
   selector: 'app-assets',
@@ -22,18 +21,6 @@ export class AssetsComponent implements OnInit {
     this.userServ.getUser().subscribe( response => {
       this.user = response;
     })
-    /* for(let i of this.positions){
-      i.getFile = function(files: string): void{
-        this.pos.download(files).subscribe(file => {
-          const blob = new Blob([file]); // you can change the type
-
-          const url= window.URL.createObjectURL(blob);
-          window.open(url);
-        })
-      }
-    }
-
-    } */
   }
   download(fileId: string, fileName: string, fileType: Types): void{
     this.pos.download(fileId).subscribe((response: any) => {

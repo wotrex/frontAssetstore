@@ -13,9 +13,6 @@ export class NavComponent implements OnInit, DoCheck {
     
    }
 
-/*   reglog(): boolean{ 
-    return this.auth.isAuthenticated()
-  } */
   ngDoCheck(){
     this.reglog = this.auth.isAuthenticated();
   }

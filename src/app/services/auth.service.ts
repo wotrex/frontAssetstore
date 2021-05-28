@@ -1,9 +1,9 @@
-import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '@app/interfaces';
 import { Observable } from 'rxjs';
 import {tap} from 'rxjs/operators';
+import * as link from '@app/apiLink';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class AuthService {
   private token = null;
   constructor(private http: HttpClient) { }
   login(user: User): Observable<{token: string}> {
-    return this.http.post<{token: string}>('/api/auth/login', user).pipe(
+    return this.http.post<{token: string}>(link +'/api/auth/login', user).pipe(
       tap(
         ({token}) => {
           localStorage.setItem('auth-token', token)
@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   register(user: User): Observable<User>{
-    return this.http.post<User>('/api/auth/register', user)
+    return this.http.post<User>(link +'/api/auth/register', user)
   }
   setToken(token: string){
     this.token = token

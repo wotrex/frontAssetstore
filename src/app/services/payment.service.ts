@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { messages } from '@app/interfaces';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import * as link from '@app/apiLink';
 
 declare const Stripe;
 @Injectable({
@@ -13,7 +12,7 @@ export class PaymentService {
   constructor(private http: HttpClient) { }
 
   getSessionId(assetId: string) : Observable<{message: string}>{
-    return this.http.get<{message: string}>('/api/pay/session/{assetId}'.replace('{assetId}', assetId))
+    return this.http.get<{message: string}>(link+ '/api/pay/session/{assetId}'.replace('{assetId}', assetId))
   }
 
   pay(id: string): void{
@@ -26,6 +25,6 @@ export class PaymentService {
   }
   
   successPayment() : Observable<any>{
-    return this.http.post<any>("/api/pay/success", null)
+    return this.http.post<any>(link + "/api/pay/success", null)
   }
 }
