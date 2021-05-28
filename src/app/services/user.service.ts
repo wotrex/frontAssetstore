@@ -13,11 +13,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUser() : Observable<User>{
-    return this.http.get<User>(link +'/api/user/getByToken')
+    return this.http.get<User>(link.sep +'/api/user/getByToken')
   }
 
   getUserItems() : Observable<Position[]>{
-    return this.http.get<Position[]>(link + '/api/user/userItems')
+    return this.http.get<Position[]>(link.sep + '/api/user/userItems')
   }
 
 }

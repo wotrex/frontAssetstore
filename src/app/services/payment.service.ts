@@ -12,7 +12,7 @@ export class PaymentService {
   constructor(private http: HttpClient) { }
 
   getSessionId(assetId: string) : Observable<{message: string}>{
-    return this.http.get<{message: string}>(link+ '/api/pay/session/{assetId}'.replace('{assetId}', assetId))
+    return this.http.get<{message: string}>(link.sep + '/api/pay/session/{assetId}'.replace('{assetId}', assetId))
   }
 
   pay(id: string): void{
@@ -25,6 +25,6 @@ export class PaymentService {
   }
   
   successPayment() : Observable<any>{
-    return this.http.post<any>(link + "/api/pay/success", null)
+    return this.http.post<any>(link.sep + "/api/pay/success", null)
   }
 }

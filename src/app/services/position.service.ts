@@ -10,10 +10,10 @@ import * as link from '@app/apiLink';
 export class PositionService {
   constructor(private http: HttpClient) { }
   fetch() : Observable<Position[]>{
-    return this.http.get<Position[]>(link +'/api/assets/all')
+    return this.http.get<Position[]>(link.sep +'/api/assets/all')
   }
   download(fileId: string) : Observable<any>{
-    return this.http.get(link +'/api/assets/download/{fileId}'.replace('{fileId}', fileId), {responseType: 'blob'});
+    return this.http.get(link.sep +'/api/assets/download/{fileId}'.replace('{fileId}', fileId), {responseType: 'blob'});
   }
   
 }

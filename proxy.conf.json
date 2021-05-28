@@ -1,12 +1,6 @@
 {
     "/api/*": {
-        "target": "http://localhost:5000",
-        "secure": false,
-        "logLevel": "debug",
-        "changeOrigin": true
-    },
-    "/uploads_f/*": {
-        "target": "http://localhost:5000",
+        "target": "https://quiet-refuge-24419.herokuapp.com",
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true

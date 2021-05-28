@@ -13,7 +13,7 @@ export class AuthService {
   private token = null;
   constructor(private http: HttpClient) { }
   login(user: User): Observable<{token: string}> {
-    return this.http.post<{token: string}>(link +'/api/auth/login', user).pipe(
+    return this.http.post<{token: string}>(link.sep +'/api/auth/login', user).pipe(
       tap(
         ({token}) => {
           localStorage.setItem('auth-token', token)
@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   register(user: User): Observable<User>{
-    return this.http.post<User>(link +'/api/auth/register', user)
+    return this.http.post<User>(link.sep +'/api/auth/register', user)
   }
   setToken(token: string){
     this.token = token
