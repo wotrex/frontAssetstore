@@ -15,6 +15,10 @@ export class PaymentService {
     return this.http.get<{message: string}>(link.sep + '/api/pay/session/{assetId}'.replace('{assetId}', assetId))
   }
 
+  getSessionIdAll(assetsId: string[]) : Observable<{message: string}>{
+    return this.http.post<{message: string}>(link.sep + '/api/pay/sessionGetAll', assetsId)
+  }
+
   pay(id: string): void{
     const stripe = Stripe("pk_test_51IvG6CI90no2RL3hI2VnCGRWEQKuvpfWVzu5BDbXScukKse2FjJFsj5vcFzpUAgwRra0DVYDxkWiTHKcC8qT6G1y00mt1UCGFI")
     stripe.redirectToCheckout({

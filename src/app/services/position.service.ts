@@ -12,6 +12,9 @@ export class PositionService {
   fetch() : Observable<Position[]>{
     return this.http.get<Position[]>(link.sep +'/api/assets/all')
   }
+  fetchOne(assetId) : Observable<Position>{
+    return this.http.get<Position>(link.sep + '/api/assets/by/{id}'.replace('{id}', assetId))
+  }
   download(fileId: string) : Observable<any>{
     return this.http.get(link.sep +'/api/assets/download/{fileId}'.replace('{fileId}', fileId), {responseType: 'blob'});
   }

@@ -1,0 +1,39 @@
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div [ngClass]="{class2: true}"> 
+        <h1>Корзина</h1>
+      </div>
+      <div class="container">
+        <div>
+          <a>UserID: {{user.id}}</a>
+          <div class="section-title">
+            <a>Общая стоимость: {{totalCost / 100}} грн.</a>
+            <button (click)="payAll()">Оплатить </button>
+          </div>
+        </div>
+        <table>
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Автор</th>
+                <th>Категории</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of positions">
+                <td *ngIf="user.cart.includes(item.id)">{{item.name}}</td>
+                <td *ngIf="user.cart.includes(item.id)">{{item.cost / 100}} грн</td>
+                <td *ngIf="user.cart.includes(item.id)">{{item.user[0].username}}</td>
+                <td *ngIf="user.cart.includes(item.id)"><a *ngFor="let i of item.categories">{{i.name}} </a></td>
+                <button *ngIf="user.cart.includes(item.id)" (click)="pay(item.id)">Оплатить </button>
+                <button *ngIf="user.cart.includes(item.id)" (click)="delete(item.id)">Отменить </button>
+                <span *ngIf="!user.cart.includes(item.id)" >Удалено</span>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </section>

@@ -27,6 +27,5 @@ export interface Position {
     categories: Categories[]
     user?: User;
     id?: string
-    getFile(file: string): void;
     type: Types
 }

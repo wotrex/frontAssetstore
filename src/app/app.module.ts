@@ -20,6 +20,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { LoginedGuard } from './logined.guard';
 import { SuccessComponent } from './components/success/success.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const appRoutes: Routes = [
   {path: "", component: HomeComponent},
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent, canActivate:[LoginedGuard]},
   {path: 'successPayment', component: SuccessComponent, canActivate:[AuthGuard]},
   {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path: 'cart', component: CartComponent, canActivate:[AuthGuard]},
   {path: '**', component: NotFoundComponent},
 ]
 
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
     NavComponent,
     SuccessComponent,
     ProfileComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

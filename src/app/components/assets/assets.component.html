@@ -9,6 +9,7 @@
             <th>Категории</th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -16,9 +17,11 @@
             <td>{{item.name}}</td>
             <td>{{item.cost / 100}} грн</td>
             <td>{{item.user[0].username}}</td>
-            <td *ngFor="let i of item.categories">{{i.name}}</td>
+            <td><a *ngFor="let i of item.categories">{{i.name}} </a></td>
             <button *ngIf="user.items.includes(item.id)" (click)="download(item.files, item.name, item.type)">Download</button>
             <button *ngIf="!user.items.includes(item.id)" (click)="pay(item.id)">Купить</button>
+            <button *ngIf="!user.items.includes(item.id) && !user.cart.includes(item.id)" (click)="addToCart(item.id)">Добавить в корзину</button>
+            <span *ngIf="user.cart.includes(item.id) && !user.items.includes(item.id)" >Добавлено в корзину</span>
           </tr>
         </tbody>
       </table>

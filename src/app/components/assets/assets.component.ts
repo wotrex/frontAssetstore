@@ -9,17 +9,22 @@ import { UserService } from '@app/services/user.service';
   templateUrl: './assets.component.html',
   styleUrls: ['./assets.component.css']
 })
+
 export class AssetsComponent implements OnInit {
   user:  User
   positions: Position[]
-  constructor(private pos: PositionService, private payserv: PaymentService, private userServ: UserService) { }
+  cart: string[]
+  constructor(private pos: PositionService, private payserv: PaymentService, private userServ: UserService) { 
+  }
 
   ngOnInit(): void {
     this.pos.fetch().subscribe(positions => {
       this.positions = positions
     })
-    this.userServ.getUser().subscribe( response => {
+    this.userServ.getUser().subscribe( (response:any) => {
       this.user = response;
+    })
+    this.payserv.successPayment().subscribe(() => {
     })
   }
   download(fileId: string, fileName: string, fileType: Types): void{
@@ -40,4 +45,9 @@ export class AssetsComponent implements OnInit {
     })
   }
 
+  addToCart(itemid: string): void{
+    this.user.cart.push(itemid);
+    this.userServ.updateCart(this.user).subscribe(response => {
+  })
+  }
 }
