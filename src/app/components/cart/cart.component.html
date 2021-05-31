@@ -23,7 +23,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of positions">
+              <tr *ngFor="let item of startPositions">
                 <td *ngIf="user.cart.includes(item.id)">{{item.name}}</td>
                 <td *ngIf="user.cart.includes(item.id)">{{item.cost / 100}} грн</td>
                 <td *ngIf="user.cart.includes(item.id)">{{item.user[0].username}}</td>

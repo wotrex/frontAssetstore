@@ -13,6 +13,7 @@ export class CartComponent implements OnInit, AfterViewInit, DoCheck{
 
   user:  User
   positions: Position[] = []
+  startPositions: Position [] = []
   totalCost: number = 0;
   constructor(private userServ: UserService, private posServ: PositionService, private payserv: PaymentService) {
    }
@@ -30,6 +31,7 @@ export class CartComponent implements OnInit, AfterViewInit, DoCheck{
         this.totalCost += respone.cost
       })
     }
+    this.startPositions = this.positions
   }
 
   ngOnInit(): void {
