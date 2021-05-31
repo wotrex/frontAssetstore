@@ -11,7 +11,8 @@
             <button (click)="payAll()">Оплатить </button>
           </div>
         </div>
-        <table>
+        <a *ngIf="positions.length == 0">Корзина пуста</a>
+        <table *ngIf="positions.length != 0">
             <thead>
               <tr>
                 <th>Название</th>

@@ -28,10 +28,10 @@ export class CartComponent implements OnInit, AfterViewInit, DoCheck{
     for(let i = 0; i < this.user.cart.length; i++) {
       this.posServ.fetchOne(this.user.cart[i]).subscribe(respone => {
         this.positions.push(respone)
+        this.startPositions.push(respone)
         this.totalCost += respone.cost
       })
     }
-    this.startPositions = this.positions
   }
 
   ngOnInit(): void {

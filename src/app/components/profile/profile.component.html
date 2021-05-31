@@ -13,8 +13,9 @@
         <a>Email: {{user.email}}</a>
       </div>
       <div class="container">
-        <a>Приобретенные товары</a>
-        <table>
+        <div><a>Приобретенные товары:</a></div>
+        <div><a *ngIf="positions.length == 0">У вас нет приобретенных товаров</a></div>
+        <table *ngIf="positions.length != 0">
             <thead>
               <tr>
                 <th>Название</th>
