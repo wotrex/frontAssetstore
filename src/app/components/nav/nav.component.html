@@ -9,7 +9,7 @@
                 <li routerLinkActive="active"><a *ngIf="!reglog" class="get-started-btn" routerLink="/login">Вход</a></li>
                 <li routerLinkActive="active"><a *ngIf="!reglog" class="get-started-btn" routerLink="/register">Регистрация</a></li>
                 <li routerLinkActive="active"><a *ngIf="reglog" class="profile-btn" [routerLink]="['/profile', user.id]">Профиль</a></li>
-                <li routerLinkActive="active"><div class="cart-btn" ><img src="assets/icons/cart.png" *ngIf="reglog" class = "cart-btn-img"routerLink="/cart"></div></li>
+                <li routerLinkActive="active"><div class="cart-btn" *ngIf="reglog" ><img src="assets/icons/cart.png"class = "cart-btn-img"routerLink="/cart"></div></li>
                 <li routerLinkActive="active"><a *ngIf="reglog" class="get-started-btn" routerLink="/logout">Выйти </a></li>
             </ul>
         </nav>
