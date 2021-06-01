@@ -16,6 +16,10 @@ export class UserService {
     return this.http.get<User>(link.sep +'/api/user/getByToken')
   }
 
+  getUserById(userId: string) : Observable<User>{
+    return this.http.get<User>(link.sep +'/api/user/getById/{userId}'.replace('{userId}', userId))
+  }
+
   updateCart(user : User) : Observable<any>{
     return this.http.patch<any>(link.sep + "/api/user/update/0", {"cart": user.cart})
   }

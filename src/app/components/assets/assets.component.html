@@ -1,29 +1,22 @@
 <section id="hero" class="d-flex align-items-center">
   <div class="container">
-    <table>
-        <thead>
+    <table class="purchases-table">
           <tr>
-            <th>Название</th>
-            <th>Цена</th>
-            <th>Автор</th>
-            <th>Категории</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th class="purchases-table-items-names">Название</th>
+            <th class="purchases-table-items-names">Цена</th>
+            <th class="purchases-table-items-names">Автор</th>
+            <th class="purchases-table-items-names">Категории</th>
           </tr>
-        </thead>
-        <tbody>
           <tr *ngFor="let item of positions">
-            <td>{{item.name}}</td>
-            <td>{{item.cost / 100}} грн</td>
-            <td>{{item.user[0].username}}</td>
-            <td><a *ngFor="let i of item.categories">{{i.name}} </a></td>
+            <td class="purchases-table-items">{{item.name}}</td>
+            <td class="purchases-table-items">{{item.cost / 100}} грн</td>
+            <td class="purchases-table-items">{{item.user[0].username}}</td>
+            <td class="purchases-table-items"><table><tr><td *ngFor="let i of item.categories">{{i.name}} </td></tr></table></td>
             <button *ngIf="user.items.includes(item.id)" (click)="download(item.files, item.name, item.type)">Download</button>
             <button *ngIf="!user.items.includes(item.id)" (click)="pay(item.id)">Купить</button>
             <button *ngIf="!user.items.includes(item.id) && !user.cart.includes(item.id)" (click)="addToCart(item.id)">Добавить в корзину</button>
             <span *ngIf="user.cart.includes(item.id) && !user.items.includes(item.id)" >Добавлено в корзину</span>
           </tr>
-        </tbody>
       </table>
   </div>
 </section>

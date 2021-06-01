@@ -71,7 +71,7 @@ body {
   }
   
   #header .logo a {
-    color: #5f687b;
+    color: white;
   }
   
   #header .logo img {
@@ -107,14 +107,15 @@ body {
   .nav-menu a {
     display: block;
     position: relative;
-    color: #5f687b;
+    color: white;
     transition: 0.3s;
     font-size: 14px;
     font-family: "Open Sans", sans-serif;
   }
+
   
-  .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-    color: #14c871;
+  .nav-menu a:hover {
+    color:black;
   }
   
   .nav-menu .drop-down ul {
@@ -147,7 +148,7 @@ body {
     font-size: 14px;
     font-weight: 500;
     text-transform: none;
-    color: #5f687b;
+    color: white;
   }
   
   .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
@@ -197,22 +198,22 @@ body {
   /* Get Startet Button */
   .get-started-btn {
     margin-left: 25px;
-    background: #fff;
-    color: #5f687b;
+    background:black;
+    color: white;
     border-radius: 4px;
     padding: 8px 25px;
     white-space: nowrap;
     transition: 0.3s;
     font-size: 14px;
     display: inline-block;
-    border: 1px solid #cdd1d9;
+    border: 2px solid white;
     text-decoration: none;
   }
   
   .get-started-btn:hover {
-    background: #206bfb;
-    color: #fff;
-    border-color: #206bfb;
+    background: white;
+    color:black;
+    border-color: black;
   }
   
   @media (max-width: 768px) {
@@ -559,57 +560,6 @@ body {
     line-height: 24px;
     font-size: 14px;
   }
-  
-  /*--------------------------------------------------------------
-  # About
-  --------------------------------------------------------------*/
-  .about .content h3 {
-    font-weight: 700;
-    font-size: 32px;
-    color: #5f687b;
-  }
-  
-  .about .content ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .about .content ul li {
-    padding-bottom: 10px;
-  }
-  
-  .about .content ul i {
-    font-size: 20px;
-    padding-right: 4px;
-    color: #16df7e;
-  }
-  
-  .about .content p:last-child {
-    margin-bottom: 0;
-  }
-  
-  /*--------------------------------------------------------------
-  # Counts
-  --------------------------------------------------------------*/
-  .counts {
-    padding-top: 0;
-  }
-  
-  .counts .counters span {
-    font-size: 48px;
-    display: block;
-    color: #16df7e;
-    font-weight: 700;
-  }
-  
-  .counts .counters p {
-    padding: 0;
-    margin: 0 0 20px 0;
-    font-family: "Raleway", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-  }
-  
   /*--------------------------------------------------------------
   # Services
   --------------------------------------------------------------*/
@@ -1359,3 +1309,326 @@ body {
     }
   }
   
+  
+  
+  .login { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    width:300px;
+    height:300px;
+  }
+  .login-title{
+    font-family: system-ui;
+    font-size: 50px;
+  }
+  
+  .login-btn {
+    background:black;
+    color: white;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 16px;
+    padding: 12px 35px;
+    display: inline-block;
+    border: 2px solid white;
+    text-decoration: none;
+    position: relative;
+    top: 10px;
+    left: 0;
+    /* margin: 150px -55px; */
+  }
+  
+  .login-btn:hover {
+    background: white;
+    color:black;
+    border-color: black;
+  }
+
+  .regist-btn {
+    background:black;
+    color: white;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 16px;
+    padding: 12px 35px;
+    display: inline-block;
+    border: 2px solid white;
+    text-decoration: none;
+    position:relative ;
+    top: 10px;
+    left: 0%;
+    /* margin: 215px -60px; */
+  }
+
+  .regist-btn:hover{
+    background: white;
+    color:black;
+    border-color: black;
+  }
+
+  .profile-btn {
+    margin-left: -35px;
+    background:black;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+    border: 2px solid white;
+    text-decoration: none;
+  }
+
+  .cart-btn {
+    margin-left: -35px;
+    vertical-align: middle;
+    text-align: center;
+    background:black;
+    color: white;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    width: 41px;
+    height: 41px;
+    display:table-cell;
+    border: 2px solid white;
+  }
+  .cart-btn:hover {
+    background:white;
+    border-color: black;
+  }
+  
+  .cart-btn-img {
+    margin: auto;
+    width: 32px; 
+    height: 32px;
+  }
+  .cart-btn-img:hover {
+    filter: invert(100);
+  }
+  
+  .profile-btn:hover {
+    background: white;
+    color:black;
+    border-color: black;
+  }
+
+  input { 
+    width: 100%; 
+    margin-bottom: 10px; 
+    background:black;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color:white;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+    -webkit-transition: box-shadow .5s ease;
+    -moz-transition: box-shadow .5s ease;
+    -o-transition: box-shadow .5s ease;
+    -ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+  }
+  input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+
+  /*--------------------------------------------------------------
+  # About
+  --------------------------------------------------------------*/
+
+  .titleabout
+  {
+    font-family: system-ui;
+    font-size: 50px;
+    position: relative;
+    margin-top: 10%;
+    margin-left: 43%;
+  }
+  .textabout {
+    position: relative;
+    margin-top: -250px;
+    margin-left: 35%;
+    margin-right: 10%;
+    font-family: 'Raleway',sans-serif;
+    font-size: 20px;
+  }
+  .imgabout {
+    margin-top: 50px;
+    margin-left: 10%;
+  }
+
+  .offer {
+    position: relative;
+    margin-top: 2%;
+    margin-left: 35%;
+    margin-right: 10%;
+    font-family: 'Raleway',sans-serif;
+    font-size: 20px;
+  }
+
+  .offer p {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    margin-left: 0px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    text-align: center;
+  }
+  .offer-assets {
+    padding-top: 65px;
+    background-image: url(https://i.postimg.cc/3wwkN8tP/asets.png) ;
+    
+  }
+  .offer-scripts {
+    padding-top: 65px;
+    background-image: url(https://i.postimg.cc/hjb6YnBt/scripts.png);
+  }
+  .offer-files {
+    padding-top: 65px;
+    background-image: url(https://cdn1.savepice.ru/uploads/2021/5/30/d0fbf5de8fdd489a831347ebcd87c4e1-full.png);
+  }
+  .about-footer {
+    min-width: 20px;
+    background-color: black;
+    color: white;
+    margin-top: 4.8%;
+  }
+  .about-footer .midle {
+    text-align: center;
+  }
+  .about-footer p {
+    display:inline-block;
+    vertical-align: middle;
+    padding: 5px 5px;
+  }
+
+  /*--------------------------------------------------------------
+  # Profile
+  --------------------------------------------------------------*/
+  .profile-title {
+    margin-top: 10%;
+    margin-left: 43%;
+    font-family: system-ui;
+    font-size: 36px;
+  }
+  .profile-info {
+    height: 100%;
+    margin: 5%;
+    display:flex;
+    padding: 10px;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Raleway',sans-serif;
+    font-size: 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+  }
+  .profile-tangle {
+    height:100%;
+    margin: 0 10%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    background-color:black;
+    border: 5px solid black;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    border-radius: 25px;
+
+  }
+  .profile-img {
+    background-color: black;
+  }
+  .profile-purchases-title {
+    height: 100%;
+    margin: 20% 0 0 0;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Raleway',sans-serif;
+    font-size: 25px;
+  }
+  .purchases-table{
+    width: 100%;
+    align-items: center;
+    border-collapse: separate;
+    border-spacing: 50px 11px;
+    table-layout: auto;
+  }
+  .purchases-table-items-names {
+    height: 100%;
+    font-family: 'Raleway',sans-serif;
+    font-size: 20px;
+    border-spacing: 50px 1rem;
+    border-collapse: separate;
+    vertical-align:middle;
+  }
+  .purchases-table-items {
+    height: 100%;
+    font-family: 'Raleway',sans-serif;
+    font-size: 16px;
+    border-spacing: 50px 1rem;
+    border-collapse: separate;
+    padding: 5px;
+    align-items: center;
+  }
+
+   /*--------------------------------------------------------------
+  # Home
+  --------------------------------------------------------------*/
+  .home-header {
+    min-width: 550px;
+    height: 186px;
+    margin-bottom: 70px;
+    padding-top: 30px;
+  }
+  .home-container {
+    width: 510px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .logout {
+    margin-top: 20%;
+    margin-left: 25%;
+    font-size: 20px;
+  }
+  .logout-btn {
+    margin-top: 1%;
+    margin-left: 24%;
+  }
+  .not-found
+  {
+    margin-top: 15%;
+    font-size: 75px;
+    font-family:Impact, 'Arial Narrow Bold', sans-serif;
+  }
+  .home-btn {
+    background:black;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 30px;
+    margin-left: 15%;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+    border: 2px solid white;
+    text-decoration: none;
+  }
+  .home-btn:hover {
+    background: white;
+    color:black;
+    border-color: black;
+  }

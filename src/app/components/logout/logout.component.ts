@@ -8,7 +8,6 @@ import { AuthService } from '@app/services/auth.service';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-
   back(){
     this.router.navigate(['/'])
   }

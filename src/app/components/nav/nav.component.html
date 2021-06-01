@@ -1,17 +1,17 @@
 <header id="header" style="background-color: black;" class="fixed-top">
     <div class="container d-flex align-items-center">
-        <h2 routerLink="/" class="logo mr-auto">Asset Store</h2>
+        <h2 routerLink="/" class="logo mr-auto" style="color:white">Asset Store</h2>
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li routerLinkActive="active"><a class="get-started-btn" style="background-color: black;" routerLink="">Главная</a></li>
-                <li routerLinkActive="active"><a class="get-started-btn" style="background-color: black;" routerLink="/about">О нас</a></li>
-                <li routerLinkActive="active"><a class="get-started-btn" style="background-color: black;" routerLink="/assets">Ассеты</a></li>
+                <li routerLinkActive="active"><a class="get-started-btn" routerLink="">Главная</a></li>
+                <li routerLinkActive="active"><a class="get-started-btn" routerLink="/about">О нас</a></li>
+                <li routerLinkActive="active"><a class="get-started-btn" routerLink="/assets"> Ассеты </a></li>
+                <li routerLinkActive="active"><a *ngIf="!reglog" class="get-started-btn" routerLink="/login">Вход</a></li>
+                <li routerLinkActive="active"><a *ngIf="!reglog" class="get-started-btn" routerLink="/register">Регистрация</a></li>
+                <li routerLinkActive="active"><a *ngIf="reglog" class="profile-btn" [routerLink]="['/profile', user.id]">Профиль</a></li>
+                <li routerLinkActive="active"><div class="cart-btn" ><img src="assets/icons/cart.png" *ngIf="reglog" class = "cart-btn-img"routerLink="/cart"></div></li>
+                <li routerLinkActive="active"><a *ngIf="reglog" class="get-started-btn" routerLink="/logout">Выйти </a></li>
             </ul>
         </nav>
-        <a *ngIf="!reglog" class="get-started-btn" style="background-color: black;" routerLink="/login" routerLinkActive="active">Вход</a>
-        <a *ngIf="!reglog" class="get-started-btn" style="background-color: black;" routerLink="/register">Регистрация</a>
-        <a *ngIf="reglog" class="get-started-btn" style="background-color: black;" routerLink="/profile">Профиль</a>
-        <a *ngIf="reglog" class="get-started-btn" style="background-color: black;" routerLink="/cart">K</a>
-        <a *ngIf="reglog" class="get-started-btn" style="background-color: black;" routerLink="/logout">Выйти</a>
     </div>
 </header>

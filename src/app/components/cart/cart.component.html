@@ -12,28 +12,24 @@
           </div>
         </div>
         <a *ngIf="positions.length == 0">Корзина пуста</a>
-        <table *ngIf="positions.length != 0">
-            <thead>
+        <table class="purchases-table" *ngIf="positions.length != 0">
               <tr>
-                <th>Название</th>
-                <th>Цена</th>
-                <th>Автор</th>
-                <th>Категории</th>
-                <th></th>
+                <th class="purchases-table-items-names">Название</th>
+                <th class="purchases-table-items-names">Цена</th>
+                <th class="purchases-table-items-names">Автор</th>
+                <th class="purchases-table-items-names">Категории</th>
+                <th ></th>
                 <th></th>
               </tr>
-            </thead>
-            <tbody>
               <tr *ngFor="let item of startPositions">
-                <td *ngIf="user.cart.includes(item.id)">{{item.name}}</td>
-                <td *ngIf="user.cart.includes(item.id)">{{item.cost / 100}} грн</td>
-                <td *ngIf="user.cart.includes(item.id)">{{item.user[0].username}}</td>
-                <td *ngIf="user.cart.includes(item.id)"><a *ngFor="let i of item.categories">{{i.name}} </a></td>
+                <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)">{{item.name}}</td>
+                <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)">{{item.cost / 100}} грн</td>
+                <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)">{{item.user[0].username}}</td>
+                <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)"><a *ngFor="let i of item.categories">{{i.name}} </a></td>
                 <button *ngIf="user.cart.includes(item.id)" (click)="pay(item.id)">Оплатить </button>
                 <button *ngIf="user.cart.includes(item.id)" (click)="delete(item.id)">Отменить </button>
                 <span *ngIf="!user.cart.includes(item.id)" >Удалено</span>
               </tr>
-            </tbody>
           </table>
       </div>
     </div>
