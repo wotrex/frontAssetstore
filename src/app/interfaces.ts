@@ -24,6 +24,8 @@ export interface Position {
     name: string
     cost: number
     files: string
+    img: string
+    description: string
     categories: Categories[]
     user?: User;
     id?: string

@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit, OnDestroy{
   user:  User
   currentUser: User
   positions: Position[] = []
+  cart: string[]
   id: string
   sub: Subscription;
   constructor(private userServ: UserService, private posServ: PositionService, private payS: PaymentService, private activatedRoute: ActivatedRoute) {
@@ -37,6 +38,7 @@ export class ProfileComponent implements OnInit, OnDestroy{
           this.positions.push(respone)
         })
       }
+      console.log(this.positions.length)
     })
       });
     this.payS.successPayment().subscribe(() => {

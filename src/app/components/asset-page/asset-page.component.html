@@ -1,0 +1,42 @@
+<body>
+    <div *ngIf="!loaded" class = "load-gif">
+        <img src="assets/icons/loader.gif">
+    </div>
+    <div *ngIf="position == null && loaded">
+        <div style="margin-top: 15%;">
+            <h1 class="not-found" style="text-align: center;">404</h1>
+        </div>
+        <div>
+            <p style="text-align: center;">Asset not found</p>
+        </div>
+        <div style="text-align: center; margin-bottom: 23%;">
+            <a class="home-btn" routerLink="/assets">Assets</a>
+        </div>
+    </div>
+    <div *ngIf="position != null && loaded">
+    <div class="asset-title">
+        <h2>{{position.name}}</h2>
+    </div>
+    <h1></h1>
+    <div class="asset-left">
+        <p><img class="asset-icon" style="height: 550px;width: 950px; border-radius: 30px;" [src]="img"></p>
+    </div>
+    <div class="asset-right">
+        <p class="asset-author"> <img style="height: 35px; width: 35px;" src="https://i.ibb.co/BVwnfBD/proficon.png">{{position.user.username}}</p>
+        <p class="asset-price">{{position.cost / 100}}₴</p>
+        <p *ngIf= "!currentUser.items.includes(position.id)"class="add-to-cart-btn" style="position: relative; padding: 10px 131px; margin-top: 2%;"(click)="pay(position.id)">Buy</p>
+        <p *ngIf= "currentUser.items.includes(position.id)" class="add-to-cart-btn" style="position: relative; padding: 10px 105px; margin-top: 2%;" (click)="download(position.files, position.name, position.type)">Download</p>
+        <p *ngIf= "!currentUser.items.includes(position.id) && !currentUser.cart.includes(position.id)" class="add-to-cart-btn" style="position: relative;"(click)="addToCart(position.id)">Add to Cart</p>
+        <p *ngIf= "!currentUser.items.includes(position.id) && currentUser.cart.includes(position.id)" class="profile-title" style="position: relative; margin-left: -65px; margin-top: -1%; font-size: 18px;">Added to cart</p>
+        <p class="secure" style="position: relative;">Secure checkout <img style="height: 20px; width: 250px;" src="https://i.ibb.co/7Xry8NH/payment-cce5cbcf5c964311190f0cf419d4ba2f.png"></p>
+    </div>
+    <div class="rectangle-info" style="position: relative;">
+        <p>{{position.description}}</p>
+    </div>
+    <div style="margin-left: 8%;">
+        <p class="asset-category">Categories:</p>
+        <p class="category-name" *ngFor="let item of position.categories">{{item.name}}</p>
+    </div>
+</div>
+
+<!--  -->

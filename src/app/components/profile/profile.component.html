@@ -37,31 +37,34 @@
   </section> -->
 
 <body>
-  <h1 class="profile-title"> Your profile</h1>
+  <h1 class="profile-title"> Profile</h1>
   <div class="profile-tangle">
       <section>
         <img src="https://i.ibb.co/2dCGQnB/proficon.png" class="profile-img" style="width:200px ;height: 200px;">
+        <div *ngIf="user != null">
         <p class="profile-info">UserID: {{user.id}}</p>
         <p class="profile-info">Username: {{user.username}}</p>
         <p class="profile-info">Email: {{user.email}}</p>
         <p class="profile-purchases-title">Purchases:</p>
-		<p class="profile-purchases-title" *ngIf="positions.length == 0">У вас нет приобретенных товаров</p>
-        <div>
-          <table class="purchases-table" *ngIf="positions.length != 0">
-              <tr >
-                <th class="purchases-table-items-names">Название</th>
-                <th class="purchases-table-items-names">Автор</th>
-                <th class="purchases-table-items-names" >Категории</th>
-                <th class="purchases-table-items-names" ></th>
-              </tr>
-              <tr *ngFor="let item of positions" class="purchases-table-items">
-                <td class="purchases-table-items" >{{item.name}}</td>
-                <td class="purchases-table-items" >{{item.user[0].username}}</td>
-                <td class="purchases-table-items"><table *ngFor="let i of item.categories"><tr><td>{{i.name}}</td></tr></table></td>
-                <td class="purchases-table-items"><button class="get-started-btn" *ngIf="user.id == currentUser.id" (click)="download(item.files, item.name, item.type)">Download</button></td>
-              </tr>
-          </table>
         </div>
-      </section>
-  </div>
-</body>
+        <p class="profile-purchases-title" *ngIf="user == null">Пользователь не найден</p>
+      <p class="profile-purchases-title" *ngIf="user.items.length == 0 && user != null">Нет приобретенных товаров</p>
+          <div *ngIf="user != null">
+            <table class="purchases-table" *ngIf="user.items.length != 0">
+                <tr >
+                  <th class="purchases-table-items-names">Название</th>
+                  <th class="purchases-table-items-names">Автор</th>
+                  <th class="purchases-table-items-names">Категории</th>
+                  <th class="purchases-table-items-names"></th>
+                </tr>
+                <tr *ngFor="let item of positions" class="purchases-table-items">
+                  <td class="purchases-table-items" >{{item.name}}</td>
+                  <td class="purchases-table-items" >{{item.user[0].username}}</td>
+                  <td class="purchases-table-items"><table *ngFor="let i of item.categories"><tr><td>{{i.name}}</td></tr></table></td>
+                  <td class="purchases-table-items"><button class="get-started-btn" *ngIf="user.id == currentUser.id" (click)="download(item.files, item.name, item.type)">Download</button></td>
+                </tr>
+            </table>
+          </div>
+        </section>
+    </div>
+  </body>

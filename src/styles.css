@@ -1499,7 +1499,7 @@ body {
     min-width: 20px;
     background-color: black;
     color: white;
-    margin-top: 4.8%;
+    margin-top: 10%;
   }
   .about-footer .midle {
     text-align: center;
@@ -1515,9 +1515,9 @@ body {
   --------------------------------------------------------------*/
   .profile-title {
     margin-top: 10%;
-    margin-left: 43%;
     font-family: system-ui;
     font-size: 36px;
+    text-align: center;
   }
   .profile-info {
     height: 100%;
@@ -1588,38 +1588,50 @@ body {
    /*--------------------------------------------------------------
   # Home
   --------------------------------------------------------------*/
-  .home-header {
-    min-width: 550px;
-    height: 186px;
-    margin-bottom: 70px;
-    padding-top: 30px;
+  .get-started {
+    margin-left: 25px;
+    background:black;
+    color: white;
+    border-radius: 4px;
+    padding: 20px 50px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 20px;
+    display: inline-block;
+    border: 2px solid white;
+    text-decoration: none;
   }
+  
+  .get-started:hover {
+    background: white;
+    color:black;
+    border-color: black;
+  }
+  .home-header{
+    min-width: 550px;
+    height: 450px;
+    padding-top: 350px;
+    padding-bottom: 70px;
+    text-align: center;
+    font-family:Squada One;
+    font-size: 40px;
+    text-shadow: black 5px 5px 0px;
+    background: #847462 no-repeat center url("https://i.ibb.co/NpV6TZw/homeing.jpg");
+    background-size:cover;
+    color: #ffffff;
+  }
+
   .home-container {
     width: 510px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  .logout {
-    margin-top: 20%;
-    margin-left: 25%;
-    font-size: 20px;
-  }
-  .logout-btn {
-    margin-top: 1%;
-    margin-left: 24%;
-  }
-  .not-found
-  {
-    margin-top: 15%;
-    font-size: 75px;
-    font-family:Impact, 'Arial Narrow Bold', sans-serif;
+    margin-top: auto;
+    margin-left: auto;
   }
   .home-btn {
     background:black;
     color: white;
     border-radius: 4px;
-    padding: 10px 30px;
-    margin-left: 15%;
+    padding: 10px 25px;
+    text-align: center;
     white-space: nowrap;
     transition: 0.3s;
     font-size: 14px;
@@ -1631,4 +1643,132 @@ body {
     background: white;
     color:black;
     border-color: black;
+  }
+  .getstartbtn {
+    margin-top: 2%;
+    text-align: center;
+  }
+  .home-text {
+    margin-top: 2%;
+    font-family: Poppins;
+    font-size: 20px;
+    text-align: center;
+
+  }
+    /*--------------------------------------------------------------
+  # assetpage
+  --------------------------------------------------------------*/
+
+  .asset-title{
+    margin-top: 10%;
+    margin-left: 15%;
+    text-align: left;
+  }
+  .asset-right {
+    position: absolute; 
+    right: 0; 
+    width: 25%;
+  }
+  .asset-left {
+    position: absolute;
+    left: 0;
+    width: 75%;
+  }
+  .asset-icon {
+    margin-left: 10%;
+  }
+
+  .asset-author {
+    text-align: left;
+    font-size: 20px;
+    font-family: Poppins;
+  }
+  .asset-price {
+    margin-top: 15%;
+    width: 100%;
+    font: Squad;
+    font-size: 55px;
+    text-align: left;
+  }
+  .asset-category
+  {
+    margin-top: 2%;
+    text-align: left;
+    font-family: Poppins;
+    display: inline-table;
+    font-size: 30px;    
+  }
+  .category-name {
+    display:inline-table;
+    margin-left: 1vmin;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 20px;  
+  }
+  .add-to-cart-btn {
+    margin-top: 2%;
+    margin-left: 0%;
+    background:black;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 100px;
+    text-align: center;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 18px;
+    display: inline-block;
+    border: 2px solid white;
+    text-decoration: none;
+  }
+  .add-to-cart-btn:hover {
+    background: white;
+    color:black;
+    border-color: black;
+  }
+  .secure {
+    margin-top: none;
+    font-size: 12px;
+  }
+  .rectangle-info {
+      height:100%;
+      margin: 40% 10% 1% 10%;
+      display:flex;
+      padding: 3% 3%;
+      justify-content:left;
+      align-items: center;
+      text-align:left;
+      white-space: pre-wrap;
+      background-color:white;
+      border: 5px solid black;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 25px;
+  }
+  /*--------------------------------------------------------------
+  # assets
+  --------------------------------------------------------------*/
+  .col1 {
+    text-align: right;
+    width: 30%;
+  }
+  .col2 {
+    margin-left: 31%;
+    width: 30%;
+  }
+  .col3 {
+    width: 30%;
+  }
+  .assets-title {
+    margin-top: 7%;
+    text-align: center;
+  }
+
+   /*--------------------------------------------------------------
+  # load
+  --------------------------------------------------------------*/
+  .load-gif{
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 17% auto;
   }

@@ -45,6 +45,7 @@ export class AssetsComponent implements OnInit {
     })
   }
 
+
   addToCart(itemid: string): void{
     this.user.cart.push(itemid);
     this.userServ.updateCart(this.user).subscribe(response => {
