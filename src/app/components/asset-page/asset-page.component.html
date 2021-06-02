@@ -22,7 +22,7 @@
         <p><img class="asset-icon" style="height: 550px;width: 950px; border-radius: 30px;" [src]="img"></p>
     </div>
     <div class="asset-right">
-        <p class="asset-author"> <img style="height: 35px; width: 35px;" src="https://i.ibb.co/BVwnfBD/proficon.png">{{position.user.username}}</p>
+        <p class="asset-author"> <img style="height: 35px; width: 35px;" src="https://i.ibb.co/BVwnfBD/proficon.png">{{position.user[0].username}}</p>
         <p class="asset-price">{{position.cost / 100}}₴</p>
         <p *ngIf= "!currentUser.items.includes(position.id)"class="add-to-cart-btn" style="position: relative; padding: 10px 131px; margin-top: 2%;"(click)="pay(position.id)">Buy</p>
         <p *ngIf= "currentUser.items.includes(position.id)" class="add-to-cart-btn" style="position: relative; padding: 10px 105px; margin-top: 2%;" (click)="download(position.files, position.name, position.type)">Download</p>

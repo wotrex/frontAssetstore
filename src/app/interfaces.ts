@@ -27,7 +27,7 @@ export interface Position {
     img: string
     description: string
     categories: Categories[]
-    user?: User;
+    user: User;
     id?: string
     type: Types
 }
