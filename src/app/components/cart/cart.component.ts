@@ -15,6 +15,7 @@ export class CartComponent implements OnInit, AfterViewInit, DoCheck{
   positions: Position[] = []
   startPositions: Position [] = []
   totalCost: number = 0;
+  loaded: boolean = false;
   constructor(private userServ: UserService, private posServ: PositionService, private payserv: PaymentService) {
    }
   ngDoCheck(): void {
@@ -25,13 +26,20 @@ export class CartComponent implements OnInit, AfterViewInit, DoCheck{
   }
 
    ngAfterViewInit(): void {
-    for(let i = 0; i < this.user.cart.length; i++) {
-      this.posServ.fetchOne(this.user.cart[i]).subscribe(respone => {
-        this.positions.push(respone)
-        this.startPositions.push(respone)
-        this.totalCost += respone.cost
-      })
-    }
+     if(this.user.cart.length != 0){
+      for(let i = 0; i < this.user.cart.length; i++) {
+        this.posServ.fetchOne(this.user.cart[i]).subscribe(respone => {
+          this.positions.push(respone)
+          this.startPositions.push(respone)
+          this.totalCost += respone.cost
+        }, error => {
+          this.loaded = true;
+        })
+      }
+    this.loaded = true;
+  }else{
+    this.loaded = true;
+  }
   }
 
   ngOnInit(): void {

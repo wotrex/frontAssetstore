@@ -14,12 +14,14 @@ export class AssetsComponent implements OnInit {
   user:  User
   positions: Position[]
   cart: string[]
+  loaded: boolean = false;
   constructor(private pos: PositionService, private payserv: PaymentService, private userServ: UserService) { 
   }
 
   ngOnInit(): void {
     this.pos.fetch().subscribe(positions => {
       this.positions = positions
+      this.loaded = true;
     })
     this.userServ.getUser().subscribe( (response:any) => {
       this.user = response;

@@ -1,5 +1,8 @@
 <section id="hero" class="d-flex align-items-center">
-  <div class="container">
+  <div *ngIf="!loaded" class = "load-gif">
+    <img src="assets/icons/loader.gif">
+  </div>
+  <div class="container" *ngIf="loaded">
     <table class="purchases-table">
           <tr>
             <th class="purchases-table-items-names">Название</th>
@@ -7,7 +10,7 @@
             <th class="purchases-table-items-names">Автор</th>
             <th class="purchases-table-items-names">Категории</th>
           </tr>
-          <tr *ngFor="let item of positions">
+          <tr *ngFor="let item of positions" [routerLink]="['/assets', item.id]">
             <td class="purchases-table-items">{{item.name}}</td>
             <td class="purchases-table-items">{{item.cost / 100}} грн</td>
             <td class="purchases-table-items">{{item.user[0].username}}</td>

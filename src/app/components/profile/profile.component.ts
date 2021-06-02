@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit, OnDestroy{
   currentUser: User
   positions: Position[] = []
   cart: string[]
+  loaded: boolean = false;
   id: string
   sub: Subscription;
   constructor(private userServ: UserService, private posServ: PositionService, private payS: PaymentService, private activatedRoute: ActivatedRoute) {
@@ -29,16 +30,18 @@ export class ProfileComponent implements OnInit, OnDestroy{
       this.id = params['id'];
       this.userServ.getUser().subscribe( response => {
       this.currentUser = response;
+    }, error => {
     }) 
     this.userServ.getUserById(this.id).subscribe( response => {
       this.user = response;
+      this.loaded = true;
       this.positions.splice(0,this.positions.length)
       for(let i = 0; i < this.user.items.length; i++) {
         this.posServ.fetchOne(this.user.items[i]).subscribe(respone => {
           this.positions.push(respone)
         })
       }
-      console.log(this.positions.length)
+    }, error => {
     })
       });
     this.payS.successPayment().subscribe(() => {

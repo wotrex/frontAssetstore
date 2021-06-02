@@ -40,16 +40,19 @@
   <h1 class="profile-title"> Profile</h1>
   <div class="profile-tangle">
       <section>
-        <img src="https://i.ibb.co/2dCGQnB/proficon.png" class="profile-img" style="width:200px ;height: 200px;">
-        <div *ngIf="user != null">
+        <div *ngIf="!loaded" class = "load-gif">
+          <img style="filter: invert(100);" src="assets/icons/loader.gif">
+        </div>
+        <img *ngIf="loaded"src="https://i.ibb.co/2dCGQnB/proficon.png" class="profile-img" style="width:200px ;height: 200px;">
+        <div *ngIf="user != null && loaded">
         <p class="profile-info">UserID: {{user.id}}</p>
         <p class="profile-info">Username: {{user.username}}</p>
         <p class="profile-info">Email: {{user.email}}</p>
         <p class="profile-purchases-title">Purchases:</p>
         </div>
-        <p class="profile-purchases-title" *ngIf="user == null">Пользователь не найден</p>
-      <p class="profile-purchases-title" *ngIf="user.items.length == 0 && user != null">Нет приобретенных товаров</p>
-          <div *ngIf="user != null">
+        <p class="profile-purchases-title" *ngIf="user == null && loaded">Пользователь не найден</p>
+        <div *ngIf = "user != null && loaded"><p class="profile-purchases-title" *ngIf="user.items.length == 0">Нет приобретенных товаров</p></div>
+          <div *ngIf="user != null && loaded">
             <table class="purchases-table" *ngIf="user.items.length != 0">
                 <tr >
                   <th class="purchases-table-items-names">Название</th>
