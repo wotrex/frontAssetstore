@@ -1771,3 +1771,21 @@ body {
     display: block;
     margin: 17% auto;
   }
+
+  /*--------------------------------------------------------------
+  # logout
+  --------------------------------------------------------------*/
+  .logout {
+    margin-top: 20%;
+    text-align: center;
+  }
+  .logout-btn {
+    margin-top: 1%;
+    text-align: center;
+  }
+  .not-found
+  {
+    margin-top: 15%;
+    font-size: 75px;
+    font-family:Impact, 'Arial Narrow Bold', sans-serif;
+  }
