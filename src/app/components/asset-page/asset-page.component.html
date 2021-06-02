@@ -16,6 +16,10 @@
     <div *ngIf="position != null && loaded">
     <div class="asset-title">
         <h2>{{position.name}}</h2>
+        <div >
+            <p class="asset-category">Categories:</p>
+            <p class="category-name" *ngFor="let item of position.categories">{{item.name}}</p>
+        </div>
     </div>
     <h1></h1>
     <div class="asset-left">
@@ -32,10 +36,6 @@
     </div>
     <div class="rectangle-info" style="position: relative;">
         <p>{{position.description}}</p>
-    </div>
-    <div style="margin-left: 8%;">
-        <p class="asset-category">Categories:</p>
-        <p class="category-name" *ngFor="let item of position.categories">{{item.name}}</p>
     </div>
 </div>
 

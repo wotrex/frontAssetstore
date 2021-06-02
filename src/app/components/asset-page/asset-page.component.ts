@@ -64,7 +64,6 @@ export class AssetPageComponent implements OnInit, OnDestroy {
 
 
   addToCart(itemid: string): void{
-    console.log(this.position.user)
     this.currentUser.cart.push(itemid);
     this.userServ.updateCart(this.currentUser).subscribe(response => {
   })

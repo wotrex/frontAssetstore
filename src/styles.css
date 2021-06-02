@@ -1692,18 +1692,17 @@ body {
   }
   .asset-category
   {
-    margin-top: 2%;
     text-align: left;
     font-family: Poppins;
     display: inline-table;
-    font-size: 30px;    
+    font-size: 16px;    
   }
   .category-name {
     display:inline-table;
     margin-left: 1vmin;
     text-align: left;
     font-family: Poppins;
-    font-size: 20px;  
+    font-size: 16px;  
   }
   .add-to-cart-btn {
     margin-top: 2%;
