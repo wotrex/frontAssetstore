@@ -38,7 +38,7 @@
     </div>
   </section>
  -->
-  <section id="hero" class="d-flex align-items-center">
+  <body>
   <div class="container">
     <div [ngClass]="{class2: true}"> 
       <div class="cart-title">Корзина</div>
@@ -63,7 +63,7 @@
             <th></th>
           </tr>
           <tr class="cart-borders" *ngFor="let item of startPositions | filter:search; index as i;">
-            <img style="width: 150px; width: 90px; margin-top: 20%;" [src]="img[i]">
+            <img *ngIf="user.cart.includes(item.id)" style="width: 150px; width: 90px; margin-top: 20%;" [src]="img[i]">
             <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)">{{item.name}}</td>
             <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)">{{item.cost / 100}} грн</td>
             <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)">{{item.user[0].username}}</td>
@@ -82,4 +82,4 @@
       </div>
     </div>
   </div>
-</section>
+</body>

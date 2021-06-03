@@ -53,7 +53,7 @@
         <p class="profile-purchases-title" *ngIf="user == null && loaded">Пользователь не найден</p>
         <div *ngIf = "user != null && loaded"><p class="profile-purchases-title" *ngIf="user.items.length == 0">Нет приобретенных товаров</p></div>
           <div *ngIf="user != null && loaded">
-            <input style="width: 50%;"type=text [(ngModel)]="search">
+            <input *ngIf="positions.length != 0" style="width: 50%;"type=text [(ngModel)]="search">
             <table class="purchases-table" *ngIf="user.items.length != 0">
                 <tr >
                   <th class="purchases-table-items-names"></th>
@@ -63,11 +63,11 @@
                   <th class="purchases-table-items-names"></th>
                 </tr>
                 <tr *ngFor="let item of positions | filter:search ; index as i;" class="purchases-table-items">
-                  <img style="width: 150px; width: 90px; margin-top: 20%;" [src]="img[i]">
-                  <td class="purchases-table-items" >{{item.name}}</td>
-                  <td class="purchases-table-items" >{{item.user[0].username}}</td>
-                  <td class="purchases-table-items"><table *ngFor="let i of item.categories"><tr><td>{{i.name}}</td></tr></table></td>
-                  <td class="purchases-table-items"><button class="get-started-btn" *ngIf="user.id == currentUser.id" (click)="download(item.files, item.name, item.type)">Download</button></td>
+                  <img [routerLink]="['/assets', item.id]" style="width: 150px; width: 90px; margin-top: 20%;" [src]="img[i]">
+                  <td [routerLink]="['/assets', item.id]" class="purchases-table-items" >{{item.name}}</td>
+                  <td [routerLink]="['/assets', item.id]" class="purchases-table-items" >{{item.user[0].username}}</td>
+                  <td [routerLink]="['/assets', item.id]" class="purchases-table-items"><table *ngFor="let i of item.categories"><tr><td>{{i.name}}</td></tr></table></td>
+                  <td [routerLink]="['/assets', item.id]" class="purchases-table-items"><button class="get-started-btn" *ngIf="user.id == currentUser.id" (click)="download(item.files, item.name, item.type)">Download</button></td>
                 </tr>
             </table>
           </div>

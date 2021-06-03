@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit, OnDestroy{
       this.positions.splice(0,this.positions.length)
       for(let i = 0; i < this.user.items.length; i++) {
         this.posServ.fetchOne(this.user.items[i]).subscribe(respone => {
-          this.positions.push(respone)
+          this.positions[i]= respone
           this.posServ.download(respone.img).subscribe((respone: any)=> {
             let imageUrl = URL.createObjectURL(respone);
             this.img[i] = this.sanitizer.bypassSecurityTrustUrl(imageUrl)

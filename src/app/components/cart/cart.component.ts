@@ -33,8 +33,8 @@ export class CartComponent implements OnInit, AfterViewInit, DoCheck{
      if(this.user.cart.length != 0){
       for(let i = 0; i < this.user.cart.length; i++) {
         this.posServ.fetchOne(this.user.cart[i]).subscribe(respone => {
-          this.positions.push(respone)
-          this.startPositions.push(respone)
+          this.positions[i] = respone
+          this.startPositions[i] = respone
           this.totalCost += respone.cost
           this.posServ.download(respone.img).subscribe((respone: any)=> {
             let imageUrl = URL.createObjectURL(respone);
