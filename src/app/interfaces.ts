@@ -8,7 +8,9 @@ export interface User {
 }
 
 export interface Categories {
+    id: string;
     name: string;
+    ename: string;
 }
 
 export interface messages {

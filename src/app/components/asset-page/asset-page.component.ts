@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Position, Types, User } from '@app/interfaces';
+import { AuthService } from '@app/services/auth.service';
 import { PaymentService } from '@app/services/payment.service';
 import { PositionService } from '@app/services/position.service';
 import { UserService } from '@app/services/user.service';
@@ -19,7 +20,9 @@ export class AssetPageComponent implements OnInit, OnDestroy {
   sub: Subscription;
   loaded: boolean = false;
   img: any;
-  constructor(private userServ: UserService, private posServ: PositionService, private payS: PaymentService, private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) { }
+  constructor(private userServ: UserService, private posServ: PositionService, 
+    private payS: PaymentService, private activatedRoute: ActivatedRoute, 
+    private sanitizer: DomSanitizer, private auth: AuthService, private router: Router) { }
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
@@ -35,9 +38,13 @@ export class AssetPageComponent implements OnInit, OnDestroy {
           this.loaded = true;
         })
       }) 
+      if(this.auth.isAuthenticated()){
       this.userServ.getUser().subscribe(resp => {
         this.currentUser = resp
-      })  
+      }) 
+    }else{
+      this.currentUser = {items: [""], cart: [""], username: "", id: "", password:"", email: ""}
+    } 
      })
   }
 
@@ -54,19 +61,24 @@ export class AssetPageComponent implements OnInit, OnDestroy {
   }
 
   pay(assetId: string): void{
+    if(this.currentUser.id != ""){
     this.payS.getSessionId(assetId).subscribe( response => {
       this.payS.pay(response.message)
     })
+  }else{
+    this.router.navigate(["/login"])
   }
-
-  getImg(imgId: string): void{
   }
 
 
   addToCart(itemid: string): void{
-    this.currentUser.cart.push(itemid);
-    this.userServ.updateCart(this.currentUser).subscribe(response => {
-  })
+    if(this.currentUser.id != ""){
+      this.currentUser.cart.push(itemid);
+      this.userServ.updateCart(this.currentUser).subscribe(response => {
+    })
+  }else{
+    this.router.navigate(["/login"])
+  }
   }
 
 }

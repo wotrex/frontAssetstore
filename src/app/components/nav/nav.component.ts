@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { User } from '@app/interfaces';
 import { AuthService } from '@app/services/auth.service';
 import { UserService } from '@app/services/user.service';

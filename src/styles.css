@@ -1708,6 +1708,7 @@ body {
     margin-top: 2%;
     margin-left: 0%;
     background:black;
+    user-select: none;
     color: white;
     border-radius: 4px;
     padding: 10px 100px;
@@ -1788,4 +1789,190 @@ body {
     margin-top: 15%;
     font-size: 75px;
     font-family:Impact, 'Arial Narrow Bold', sans-serif;
+  }
+
+  /*--------------------------------------------------------------
+  # assets
+  --------------------------------------------------------------*/
+  .market-title {
+    margin-top: 7%;
+    text-align: center;
+  }
+  .left-bar {
+    height: 800px;
+    width: 13%;
+    float: left;
+    border-top: 3px solid #cccccc;
+    border-right: 3px solid #cccccc;
+    padding-right: 12px;
+  }
+  .search-form {
+    margin: 15% 1% 5% 8%;
+    border:black;
+    border-radius: 5px;
+    padding: 5px 2px;
+    color: white;
+    background-color: black;
+    text-align: center;
+  }
+  .market-sort {
+    margin: 45% 8% 5% 8% ;
+    font-family: Mukta;
+    font-size: 28px;
+    text-align: center;
+  }
+  .assets-sorting {
+    margin: 10% 20% 5% 20%;
+    font-family: Poppins;
+    font-size: 18px;
+    user-select: none;
+    text-align: center;
+  }
+  .assets-sorting:hover {
+    border-radius: 4px;
+    padding: 2px 2px;
+    transition: 0.3s;
+    font-size: 18px;
+    border: 2px solid black;
+  }
+  
+  .shop {
+    border-top: 3px solid #cccccc;
+    float: right;
+    width: 87%;
+    height: 700px;
+  }
+
+  .f11 {
+    float:left;
+    margin: 5% 2% 1% 1%;
+    width: 30%;
+    height: 30%;
+  }
+  .market-form {
+    width: 350px;
+    height: 180px;
+    margin: 1% 1%;
+  }
+  .form-left {
+    margin-top: 1%;
+    width: 30%;
+    height: 24%;
+    float: left;
+  }
+  .form-right {
+    margin-top:  1%;
+    height: 24%;
+    width: 70%;
+    float:right;
+    text-align: center;
+  }
+  .form-right1 {
+    height: 100%;
+    width: 40%;
+    float: left;
+  }
+  .form-right2 {
+    height: 100%;
+    width: 60%;
+    float: right;
+  }
+  .form-price {
+    margin-left: 25%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 28px;
+  }
+  .form-author{
+    height: 40%;
+    width: 100%;
+    font-size: 14px;
+    font-family: Poppins;
+  }
+  .form-name {
+    height: 60%;
+    width: 100%;
+    font-family: Poppins;
+    font-size: 18px; 
+  }
+  .buy-btn {
+    background:black;
+    color: white;
+    border-radius: 4px;
+    padding: 5px 5px;
+    user-select: none;
+    transition: 0.3s;
+    font-size: 15px;
+    border: 2px solid white;
+    text-decoration: none;
+  }
+  .buy-added{
+    color: black;
+    border-radius: 4px;
+    padding: 5px 5px;
+    transition: 0.3s;
+    font-size: 15px;
+    border: 2px solid black;
+    text-decoration: none;
+  }
+  .buy-btn:hover {
+    background: white;
+    color:black;
+    border-color: black;
+  }
+  /*--------------------------------------------------------------
+  # cart
+  --------------------------------------------------------------*/
+  .cart-title {
+    margin-top: 10%;
+    text-align: center;
+    font-size: 40px;
+    border-bottom: 2px solid #949494;
+  }
+  .cart-id {
+    font-size: 19px;
+  }
+  .cart-bottom {
+    border-top: 2px solid #949494;
+  }
+  .cart-empty {
+    font-size: 28px;
+    text-align: center;
+  }
+  .cart-total {
+    margin-top: 2%;
+    float: left;
+    text-align: right;
+    width: 80%;
+    height: 100px;
+    font-size: 20px;
+  }
+  .cart-total1 {
+    margin-top: 2%;
+    float:right;
+    width: 20%;
+    height: 100px;
+  }
+  .total-text {
+    margin-top: 1%;
+    font-size: 20px;
+  }
+  .pay-all-btn {
+    margin-top: 1%;
+    margin-left: 1%;
+    background:black;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 50px;
+    text-align: center;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 18px;
+    display: inline-block;
+    border: 2px solid white;
+    text-decoration: none;
+  }
+  .pay-all-btn:hover {
+    background: white;
+    color:black;
+    border-color: black;
   }

@@ -37,6 +37,9 @@
             <button type = "submit" class="login-btn" [disabled] = "form.invalid || form.disabled">Войти</button>
             <div><span style="color: red;" *ngIf="error">{{error}}</span></div>
         </div>
+        <div class="text-center">
+            <button routerLink="/register" class="login-btn">Создать аккаунт</button>
+        </div>
     </form>
 </div>
 </section>

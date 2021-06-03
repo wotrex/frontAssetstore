@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, OnInit, } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Position, User } from '@app/interfaces';
 import { PaymentService } from '@app/services/payment.service';
 import { PositionService } from '@app/services/position.service';
@@ -14,9 +15,12 @@ export class CartComponent implements OnInit, AfterViewInit, DoCheck{
   user:  User
   positions: Position[] = []
   startPositions: Position [] = []
+  img: any[] = [];
   totalCost: number = 0;
   loaded: boolean = false;
-  constructor(private userServ: UserService, private posServ: PositionService, private payserv: PaymentService) {
+  public search: string
+  constructor(private userServ: UserService, private posServ: PositionService, private payserv: PaymentService,
+    private sanitizer: DomSanitizer) {
    }
   ngDoCheck(): void {
     this.totalCost = 0
@@ -32,11 +36,16 @@ export class CartComponent implements OnInit, AfterViewInit, DoCheck{
           this.positions.push(respone)
           this.startPositions.push(respone)
           this.totalCost += respone.cost
+          this.posServ.download(respone.img).subscribe((respone: any)=> {
+            let imageUrl = URL.createObjectURL(respone);
+            this.img[i] = this.sanitizer.bypassSecurityTrustUrl(imageUrl)
+            this.loaded = true;
+          })
         }, error => {
           this.loaded = true;
         })
       }
-    this.loaded = true;
+      console.log(this.img)
   }else{
     this.loaded = true;
   }

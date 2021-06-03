@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Position } from '@app/interfaces';
+import { Categories, Position } from '@app/interfaces';
 import { Observable } from 'rxjs';
 import * as link from '@app/apiLink';
 
@@ -17,6 +17,10 @@ export class PositionService {
   }
   download(fileId: string) : Observable<any>{
     return this.http.get(link.sep +'/api/assets/download/{fileId}'.replace('{fileId}', fileId), {responseType: 'blob'});
+  }
+
+  getCategories() : Observable<Categories[]>{
+    return this.http.get<Categories[]>(link.sep +'/api/assets/allcategories');
   }
   
 }

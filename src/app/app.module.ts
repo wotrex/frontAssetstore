@@ -23,11 +23,12 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AssetPageComponent } from './components/asset-page/asset-page.component';
+import { FilterPipe } from './name.pipe';
 
 const appRoutes: Routes = [
   {path: "", component: HomeComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'assets', component: AssetsComponent, canActivate:[AuthGuard]},
+  {path: 'assets', component: AssetsComponent},
   {path: 'assets/:id', component: AssetPageComponent},
   {path: 'logout', component: LogoutComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent, canActivate:[LoginedGuard]},
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
     CartComponent,
     FooterComponent,
     AssetPageComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

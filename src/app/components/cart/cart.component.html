@@ -1,4 +1,4 @@
-<section id="hero" class="d-flex align-items-center">
+<!-- <section id="hero" class="d-flex align-items-center">
     <div class="container">
       <div [ngClass]="{class2: true}"> 
         <h1>Корзина</h1>
@@ -37,3 +37,49 @@
       </div>
     </div>
   </section>
+ -->
+  <section id="hero" class="d-flex align-items-center">
+  <div class="container">
+    <div [ngClass]="{class2: true}"> 
+      <div class="cart-title">Корзина</div>
+    </div>
+      <div *ngIf="!loaded" class = "load-gif">
+        <img src="assets/icons/loader.gif">
+      </div>
+      <div class="container" >
+        <div>
+          <p class="cart-id">Корзина пользователя: {{user.username}}</p>
+        </div>
+        <p class="cart-empty" *ngIf="positions.length == 0 && loaded">Корзина пуста</p>
+        <input *ngIf="positions.length != 0 && loaded" style="width: 250px;" type=text [(ngModel)]="search">
+        <table class="purchases-table" *ngIf="positions.length != 0 && loaded">
+          <tr>
+            <th class="purchases-table-items-names"></th>
+            <th class="purchases-table-items-names">Название</th>
+            <th class="purchases-table-items-names">Цена</th>
+            <th class="purchases-table-items-names">Автор</th>
+            <th class="purchases-table-items-names">Категории</th>
+            <th ></th>
+            <th></th>
+          </tr>
+          <tr class="cart-borders" *ngFor="let item of startPositions | filter:search; index as i;">
+            <img style="width: 150px; width: 90px; margin-top: 20%;" [src]="img[i]">
+            <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)">{{item.name}}</td>
+            <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)">{{item.cost / 100}} грн</td>
+            <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)">{{item.user[0].username}}</td>
+            <td class="purchases-table-items" *ngIf="user.cart.includes(item.id)"><a *ngFor="let i of item.categories">{{i.name}} </a></td>
+            <button class="get-started-btn" *ngIf="user.cart.includes(item.id)" (click)="pay(item.id)">Оплатить </button>
+            <button class="get-started-btn" *ngIf="user.cart.includes(item.id)" (click)="delete(item.id)">Отменить </button>
+            <span *ngIf="!user.cart.includes(item.id)" >Удалено</span>
+          </tr>
+        </table>
+    </div>
+    <div class="cart-bottom" *ngIf="positions.length != 0">
+      <div class="cart-total"><p class="total-text">Общая стоимость: {{totalCost / 100}} грн.</p></div>
+      <div class="cart-total1">
+        <button class="pay-all-btn" (click)="payAll()">Оплатить все </button>
+        <img style="width: 200px; height: 20px;margin-left: 3%;" src="https://unity-assetstorev2-prd.storage.googleapis.com/cdn-origin/assets/as/styles/i/payment.cce5cbcf5c964311190f0cf419d4ba2f.png">
+      </div>
+    </div>
+  </div>
+</section>

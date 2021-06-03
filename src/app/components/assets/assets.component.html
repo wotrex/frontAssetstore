@@ -1,25 +1,46 @@
-<section id="hero" class="d-flex align-items-center">
-  <div *ngIf="!loaded" class = "load-gif">
-    <img src="assets/icons/loader.gif">
+<body style="display: block; margin-bottom: 60%;">
+  <div class="market-title">
+    <h2>Assets</h2>
   </div>
-  <div class="container" *ngIf="loaded">
-    <table class="purchases-table">
-          <tr>
-            <th class="purchases-table-items-names">Название</th>
-            <th class="purchases-table-items-names">Цена</th>
-            <th class="purchases-table-items-names">Автор</th>
-            <th class="purchases-table-items-names">Категории</th>
-          </tr>
-          <tr *ngFor="let item of positions">
-            <td [routerLink]="['/assets', item.id]" class="purchases-table-items">{{item.name}}</td>
-            <td [routerLink]="['/assets', item.id]" class="purchases-table-items">{{item.cost / 100}} грн</td>
-            <td [routerLink]="['/assets', item.id]" class="purchases-table-items">{{item.user[0].username}}</td>
-            <td [routerLink]="['/assets', item.id]" class="purchases-table-items"><table><tr><td *ngFor="let i of item.categories">{{i.name}} </td></tr></table></td>
-            <button *ngIf="user.items.includes(item.id)" (click)="download(item.files, item.name, item.type)">Download</button>
-            <button *ngIf="!user.items.includes(item.id)" (click)="pay(item.id)">Купить</button>
-            <button *ngIf="!user.items.includes(item.id) && !user.cart.includes(item.id)" (click)="addToCart(item.id)">Добавить в корзину</button>
-            <span *ngIf="user.cart.includes(item.id) && !user.items.includes(item.id)" >Добавлено в корзину</span>
-          </tr>
-      </table>
+  <div class="left-bar" >
+    <input class="search-form" style="width: 170px;" type=text [(ngModel)]="search">
+<!--     <p class="market-sort">Sorting</p>
+    <p class="assets-sorting">by price</p> -->
+    <p class="market-sort">Categories</p>
+    <p class="assets-sorting" *ngIf="currentCategories.length != 0" style="filter: invert(100);background-color: white; color: black;" (click)="allCategory()">All categories</p>
+    <p class="assets-sorting" *ngIf="currentCategories.length == 0" (click)="allCategory()">All categories</p>
+    <div *ngFor = "let category of cat">
+      <p class="assets-sorting" *ngIf="currentCategories.includes(category)" style="filter: invert(100);background-color: white; color: black;"(click)="sortCategory(category)">{{category.name}}</p>
+      <p class="assets-sorting" *ngIf="!currentCategories.includes(category)"  (click)="sortCategory(category)">{{category.name}}</p>
+    </div>   
   </div>
-</section>
+  <div class="shop">
+    <div *ngIf="!loaded" class = "load-gif">
+      <img src="assets/icons/loader.gif">
+    </div>
+    <div *ngIf="loaded">
+    <div *ngFor="let item of positions | filter:search; index as i;">
+    <div class="f11" *ngIf="contains(item.categories).length != 0">
+      <div class="market-form">
+        <div>
+          <img [routerLink]="['/assets', item.id]" style="height: 180px; width: 350px; border-radius: 15px;" [src]="img[i]">
+        </div>
+        <div class="form-left" [routerLink]="['/assets', item.id]">
+          <div class="form-author">{{item.user[0].username}}</div>
+          <div class="form-name">{{item.name}}</div>
+        </div>
+        <div class="form-right" >
+          <div class="form-right1" [routerLink]="['/assets', item.id]">
+            <div class = "form-price">{{item.cost / 100}}₴</div>
+          </div>
+          <div class="form-right2" *ngIf="user != null">
+            <div class="buy-btn" *ngIf="!user.items.includes(item.id) && !user.cart.includes(item.id)" (click)="addToCart(item.id)">Add to Cart</div>
+            <div class="buy-added" *ngIf="user.cart.includes(item.id) && !user.items.includes(item.id)">Added to Cart</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</body>

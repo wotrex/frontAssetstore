@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component,OnDestroy, OnInit } from '@angular/core';
 import { Position, Types, User } from '@app/interfaces';
 import { PaymentService } from '@app/services/payment.service';
 import { PositionService } from '@app/services/position.service';
 import { UserService } from '@app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -17,9 +18,12 @@ export class ProfileComponent implements OnInit, OnDestroy{
   positions: Position[] = []
   cart: string[]
   loaded: boolean = false;
+  img: any[] = [];
   id: string
   sub: Subscription;
-  constructor(private userServ: UserService, private posServ: PositionService, private payS: PaymentService, private activatedRoute: ActivatedRoute) {
+  public search: string
+  constructor(private userServ: UserService, private posServ: PositionService,
+     private payS: PaymentService, private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {
    }
   ngOnDestroy(): void {
     this.sub.unsubscribe()
@@ -39,6 +43,10 @@ export class ProfileComponent implements OnInit, OnDestroy{
       for(let i = 0; i < this.user.items.length; i++) {
         this.posServ.fetchOne(this.user.items[i]).subscribe(respone => {
           this.positions.push(respone)
+          this.posServ.download(respone.img).subscribe((respone: any)=> {
+            let imageUrl = URL.createObjectURL(respone);
+            this.img[i] = this.sanitizer.bypassSecurityTrustUrl(imageUrl)
+          })
         })
       }
     }, error => {
